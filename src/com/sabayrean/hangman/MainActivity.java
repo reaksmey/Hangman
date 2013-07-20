@@ -1,6 +1,6 @@
 package com.sabayrean.hangman;
 
-import com.sabayrean.hangmain.R;
+import com.sabayrean.hangman.R;
 
 import android.app.Activity;
 import android.content.Context;
