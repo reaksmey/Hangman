@@ -17,6 +17,7 @@ import com.sabayrean.widget.MyEditText;
 public class MainActivity extends Activity {
 
 	public static final String TAG = Debug.TAG;
+	private Guess guess = null;
 
 	private MyEditText editor;
 
@@ -42,7 +43,7 @@ public class MainActivity extends Activity {
 		
 		String randomString = RandomString.getInstance().getWord();
 		TextResult result = new TextResult(randomString);
-		Guess guess = new Guess(result);
+		guess = new Guess(result);
 		
 		editor = (MyEditText) findViewById(R.id.editor);
 
@@ -57,7 +58,12 @@ public class MainActivity extends Activity {
 					int count) {
 				char lastChar = s.charAt(s.toString().length() - 1);
 //				Guess.isExists
-				Log.e(TAG, "[String]" + lastChar);
+				List<Integer> indexes = guess.getIndexes(lastChar);
+				if(indexes != null)
+					for(Integer index : indexes) {
+						char c = guess.getResult().getText().charAt(index);
+						Log.e(TAG, "char" + c);
+					}
 
 			}
 			

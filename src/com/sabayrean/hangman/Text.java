@@ -2,7 +2,7 @@ package com.sabayrean.hangman;
 
 public abstract class Text {
 	
-	private String text = null;
+	private String text = "";
 	
 	protected void setText(String text){
 		this.text = text;
