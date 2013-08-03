@@ -52,14 +52,14 @@ public class MainActivity extends Activity {
 		editor = (MyEditText) findViewById(R.id.editor);
 		layoutTextView = (LinearLayout) findViewById(R.id.layoutTextView);
 
-		for (int i = 0; i < 4; i++) {
+		for (int i = 0; i < randomString.length(); i++) {
 			ItemTextView itemTextView = new ItemTextView(this);
 			itemTextViews.add(itemTextView);
 			layoutTextView.addView(itemTextView);
 		}
 		
 		
-		itemTextViews.get(0).setText("H");
+//		itemTextViews.get(0).setText("H");
 		
 		setObjectListenner();
 	}
@@ -75,6 +75,7 @@ public class MainActivity extends Activity {
 				if(indexes != null)
 					for(Integer index : indexes) {
 						char c = guess.getResult().getText().charAt(index);
+						itemTextViews.get(index).setText(String.valueOf(c));
 //						textView = (Edit)
 						Log.e(TAG, "char" + c);
 					}
