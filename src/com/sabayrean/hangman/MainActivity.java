@@ -57,7 +57,6 @@ public class MainActivity extends Activity {
 			public void onTextChanged(CharSequence s, int start, int before,
 					int count) {
 				char lastChar = s.charAt(s.toString().length() - 1);
-//				Guess.isExists
 				List<Integer> indexes = guess.getIndexes(lastChar);
 				if(indexes != null)
 					for(Integer index : indexes) {
