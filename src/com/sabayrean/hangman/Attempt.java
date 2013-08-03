@@ -2,6 +2,7 @@ package com.sabayrean.hangman;
 
 public class Attempt {
 	
+	public static int MAXIMUM = 5;
 	private int count = 0;
 	private String image = "";
 	
