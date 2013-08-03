@@ -25,23 +25,33 @@
             android:layout_gravity="center_horizontal"
             android:background="@android:color/white"
             android:src="@drawable/bg_hangman" />
-
     </RelativeLayout>
 
     <LinearLayout
+        android:id="@+id/layoutTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:orientation="horizontal"
         android:gravity="center_horizontal" >
 
-        <include layout="@layout/item_text_view" />
+        <!-- <include layout="@layout/item_text_view" -->
+        <!-- android:id="@+id/text0"/> -->
 
-        <include layout="@layout/item_text_view" />
 
-        <include layout="@layout/item_text_view" />
+        <!-- <include layout="@layout/item_text_view" -->
+        <!-- android:id="@+id/text1"/> -->
 
-        <include layout="@layout/item_text_view" />
 
-        <include layout="@layout/item_text_view" />
+        <!-- <include layout="@layout/item_text_view" -->
+        <!-- android:id="@+id/text2"/> -->
+
+
+        <!-- <include layout="@layout/item_text_view" -->
+        <!-- android:id="@+id/text3"/> -->
+
+
+        <!-- <include layout="@layout/item_text_view" -->
+        <!-- android:id="@+id/text4"/> -->
     </LinearLayout>
 
 </LinearLayout>

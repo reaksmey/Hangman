@@ -1,7 +1,7 @@
 package com.sabayrean.hangman;
 
+import java.util.ArrayList;
 import java.util.List;
-import java.util.regex.Matcher;
 
 import android.app.Activity;
 import android.content.Context;
@@ -9,13 +9,17 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
-import android.view.KeyEvent;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.LinearLayout;
 
+import com.sabayrean.hangman.item.ItemTextView;
 import com.sabayrean.widget.MyEditText;
 
 public class MainActivity extends Activity {
 
+	private LinearLayout layoutTextView;
+	private List<ItemTextView> itemTextViews = new ArrayList<ItemTextView>();
+	
 	public static final String TAG = Debug.TAG;
 	private Guess guess = null;
 
@@ -46,7 +50,17 @@ public class MainActivity extends Activity {
 		guess = new Guess(result);
 		
 		editor = (MyEditText) findViewById(R.id.editor);
+		layoutTextView = (LinearLayout) findViewById(R.id.layoutTextView);
 
+		for (int i = 0; i < 4; i++) {
+			ItemTextView itemTextView = new ItemTextView(this);
+			itemTextViews.add(itemTextView);
+			layoutTextView.addView(itemTextView);
+		}
+		
+		
+		itemTextViews.get(0).setText("H");
+		
 		setObjectListenner();
 	}
 
@@ -61,6 +75,7 @@ public class MainActivity extends Activity {
 				if(indexes != null)
 					for(Integer index : indexes) {
 						char c = guess.getResult().getText().charAt(index);
+//						textView = (Edit)
 						Log.e(TAG, "char" + c);
 					}
 
