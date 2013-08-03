@@ -1,5 +1,6 @@
 package com.sabayrean.widget;
 
+import android.app.Activity;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.util.Log;
@@ -17,6 +18,7 @@ public class MyEditText extends EditText {
 	@Override
 	public boolean onKeyPreIme(int keyCode, KeyEvent event) {
 		Log.e(Debug.TAG, "[keyCode]" + keyCode);
+		((Activity)getContext()).finish();
 		return true;
 		// return super.onKeyPreIme(keyCode, event);
 	}

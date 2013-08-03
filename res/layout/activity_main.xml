@@ -13,6 +13,8 @@
             android:id="@+id/editor"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
             android:ems="10"
             android:visibility="visible" >
 
@@ -20,6 +22,7 @@
         </com.sabayrean.widget.MyEditText>
 
         <ImageView
+            android:id="@+id/image"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
@@ -31,8 +34,8 @@
         android:id="@+id/layoutTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center_horizontal" >
+        android:gravity="center_horizontal"
+        android:orientation="horizontal" >
 
         <!-- <include layout="@layout/item_text_view" -->
         <!-- android:id="@+id/text0"/> -->

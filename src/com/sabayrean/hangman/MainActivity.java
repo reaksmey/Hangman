@@ -9,7 +9,9 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.sabayrean.hangman.item.ItemTextView;
@@ -18,8 +20,9 @@ import com.sabayrean.widget.MyEditText;
 public class MainActivity extends Activity {
 
 	private LinearLayout layoutTextView;
+	private ImageView image;
 	private List<ItemTextView> itemTextViews = new ArrayList<ItemTextView>();
-	
+
 	public static final String TAG = Debug.TAG;
 	private Guess guess = null;
 
@@ -34,34 +37,40 @@ public class MainActivity extends Activity {
 		imm.toggleSoftInput(InputMethodManager.SHOW_FORCED,
 				InputMethodManager.HIDE_IMPLICIT_ONLY);
 
-//		String randomString = RandomString.getInstance().getWord();
-//		TextResult result = new TextResult(randomString);
-//		Guess guess = new Guess(result);
-//		
-//		// user typing keyboard
-//		List<Integer> indexes = guess.getIndexes(c);
-//		for(Integer index : indexes){
-//			guess.getResult().charAt(index);
-//			// display character on _______
-//		}
-		
+		// String randomString = RandomString.getInstance().getWord();
+		// TextResult result = new TextResult(randomString);
+		// Guess guess = new Guess(result);
+		//
+		// // user typing keyboard
+		// List<Integer> indexes = guess.getIndexes(c);
+		// for(Integer index : indexes){
+		// guess.getResult().charAt(index);
+		// // display character on _______
+		// }
+
 		String randomString = RandomString.getInstance().getWord();
 		TextResult result = new TextResult(randomString);
 		guess = new Guess(result);
-		
+
 		editor = (MyEditText) findViewById(R.id.editor);
 		layoutTextView = (LinearLayout) findViewById(R.id.layoutTextView);
-
+		image = (ImageView) findViewById(R.id.image);
+		
 		for (int i = 0; i < randomString.length(); i++) {
 			ItemTextView itemTextView = new ItemTextView(this);
 			itemTextViews.add(itemTextView);
 			layoutTextView.addView(itemTextView);
 		}
+
+		// itemTextViews.get(0).setText("H");
+
 		
-		
-//		itemTextViews.get(0).setText("H");
 		
 		setObjectListenner();
+	}
+	
+	private void replaceImageView(int resId) {
+		image.setImageResource(resId);
 	}
 
 	private void setObjectListenner() {
@@ -72,16 +81,14 @@ public class MainActivity extends Activity {
 					int count) {
 				char lastChar = s.charAt(s.toString().length() - 1);
 				List<Integer> indexes = guess.getIndexes(lastChar);
-				if(indexes != null)
-					for(Integer index : indexes) {
+				if (indexes != null)
+					for (Integer index : indexes) {
 						char c = guess.getResult().getText().charAt(index);
 						itemTextViews.get(index).setText(String.valueOf(c));
-//						textView = (Edit)
-						Log.e(TAG, "char" + c);
+//						replaceImageView(R.drawable.ic_launcher);
 					}
 
 			}
-			
 
 			@Override
 			public void beforeTextChanged(CharSequence s, int start, int count,
@@ -93,4 +100,5 @@ public class MainActivity extends Activity {
 			}
 		});
 	}
+
 }
