@@ -27,6 +27,10 @@ public class Guess {
 		return null;
 	}
 	
+	public TextResult getResult(){
+		return result;
+	}
+	
 	public Attempt getAttempt(){
 		return attempt;
 	}
