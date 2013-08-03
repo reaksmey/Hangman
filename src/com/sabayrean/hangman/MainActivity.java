@@ -1,11 +1,15 @@
 package com.sabayrean.hangman;
 
+import java.util.List;
+import java.util.regex.Matcher;
+
 import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.inputmethod.InputMethodManager;
 
 import com.sabayrean.widget.MyEditText;
@@ -25,6 +29,21 @@ public class MainActivity extends Activity {
 		imm.toggleSoftInput(InputMethodManager.SHOW_FORCED,
 				InputMethodManager.HIDE_IMPLICIT_ONLY);
 
+//		String randomString = RandomString.getInstance().getWord();
+//		TextResult result = new TextResult(randomString);
+//		Guess guess = new Guess(result);
+//		
+//		// user typing keyboard
+//		List<Integer> indexes = guess.getIndexes(c);
+//		for(Integer index : indexes){
+//			guess.getResult().charAt(index);
+//			// display character on _______
+//		}
+		
+		String randomString = RandomString.getInstance().getWord();
+		TextResult result = new TextResult(randomString);
+		Guess guess = new Guess(result);
+		
 		editor = (MyEditText) findViewById(R.id.editor);
 
 		setObjectListenner();
@@ -36,9 +55,12 @@ public class MainActivity extends Activity {
 			@Override
 			public void onTextChanged(CharSequence s, int start, int before,
 					int count) {
-				Log.e(TAG, "[String]" + s.toString());
+				char lastChar = s.charAt(s.toString().length() - 1);
+//				Guess.isExists
+				Log.e(TAG, "[String]" + lastChar);
 
 			}
+			
 
 			@Override
 			public void beforeTextChanged(CharSequence s, int start, int count,
