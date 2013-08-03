@@ -5,15 +5,15 @@
     android:background="@android:color/white"
     android:orientation="vertical" >
 
-    <EditText
+    <com.sabayrean.widget.MyEditText
         android:id="@+id/editor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:visibility="gone" >
+        android:visibility="visible" >
 
         <requestFocus />
-    </EditText>
+    </com.sabayrean.widget.MyEditText>
 
     <ImageView
         android:layout_width="200dp"
@@ -26,45 +26,15 @@
         android:layout_height="wrap_content"
         android:gravity="center_horizontal" >
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="8dp"
-            android:text="--"
-            android:textColor="@android:color/black"
-            android:textSize="16sp" />
+        <include layout="@layout/item_text_view" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="8dp"
-            android:text="--"
-            android:textColor="@android:color/black"
-            android:textSize="16sp" />
+        <include layout="@layout/item_text_view" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="8dp"
-            android:text="--"
-            android:textColor="@android:color/black"
-            android:textSize="16sp" />
+        <include layout="@layout/item_text_view" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="8dp"
-            android:text="--"
-            android:textColor="@android:color/black"
-            android:textSize="16sp" />
+        <include layout="@layout/item_text_view" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="8dp"
-            android:text="--"
-            android:textColor="@android:color/black"
-            android:textSize="16sp" />
+        <include layout="@layout/item_text_view" />
     </LinearLayout>
 
 </LinearLayout>
