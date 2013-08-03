@@ -12,7 +12,7 @@ public class TextResult extends Text {
 	public List<Integer> getIndexes(char c){
 		List<Integer> indexes = new ArrayList<Integer>();
 		for(int i = 0; i < this.getText().length(); i++){
-			indexes.add(i);
+			if(this.getText().charAt(i) == c) indexes.add(i);
 		}
 		return indexes;
 	}
